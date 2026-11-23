@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayush Thorat – Python & Web Developer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F3F5FA;--surface:#fff;--ink:#0E1730;--muted:#55627F;--line:#D6DCEA;--accent:#2748C9;--accent-ink:#fff;--hl:#B8892E;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A0F1E;--surface:#121A31;--ink:#EEF2FB;--muted:#9BA7C2;--line:#222E4D;--accent:#8FB0FF;--accent-ink:#0A0F1E;--hl:#E3B964;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A0F1E;--surface:#121A31;--ink:#EEF2FB;--muted:#9BA7C2;--line:#222E4D;--accent:#8FB0FF;--accent-ink:#0A0F1E;--hl:#E3B964;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 Figtree,system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:"Bricolage Grotesque",Georgia,serif;line-height:1.1;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:11}
+nav{display:flex;align-items:center;justify-content:space-between;height:56px;gap:1rem}
+nav .logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;text-decoration:none}
+nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem;white-space:nowrap}
+nav ul a:hover{color:var(--ink)}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;width:38px;height:38px;cursor:pointer;font-size:1rem;flex:none}
+.hero{padding:4rem 0 3.5rem;display:grid;gap:2.5rem;grid-template-columns:1.15fr .85fr;align-items:center}
+.hero h1{font-size:clamp(3rem,9vw,6.2rem);font-weight:800;letter-spacing:-.03em}
+.hero h1 span{display:block;color:var(--accent)}
+.hero p{color:var(--muted);max-width:34rem;margin:1.25rem 0 1.75rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.7rem 1.25rem;border-radius:8px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.main{background:var(--accent);color:var(--accent-ink)}
+.btn.alt{color:var(--ink);border-color:var(--line)}
+.btn:hover{border-color:var(--hl)}
+pre.code{margin:0;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--hl);border-radius:6px;padding:1.25rem;font:500 .92rem/1.7 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;min-height:15rem}
+.k{color:var(--accent)}.s{color:var(--muted)}
+.cursor{display:inline-block;width:.55em;height:1.1em;background:var(--hl);vertical-align:text-bottom;animation:blink 1s steps(2) infinite}
+@keyframes blink{to{opacity:0}}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:.6rem}
+.lead{color:var(--muted);max-width:40rem;margin:0 0 2rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:1.25rem;display:flex;flex-direction:column;gap:.5rem}
+.card h3{font-size:1.3rem}
+.card p{margin:0;color:var(--muted);font-size:1rem}
+.card a.go{margin-top:auto;padding-top:.5rem;font-weight:600;color:var(--accent);text-decoration:none}
+.card a.go:hover{text-decoration:underline}
+.tag{font-size:.85rem;color:var(--muted)}
+.big .card{border-top:6px solid var(--accent)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.steps li{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:1rem}
+.steps b{font-family:"Bricolage Grotesque",sans-serif;font-size:2rem;color:var(--hl);display:block;line-height:1}
+.steps a{font-weight:600;text-decoration:none;display:block;margin:.4rem 0 .15rem}
+.steps a:hover{color:var(--accent)}
+.steps span{font-size:.9rem;color:var(--muted)}
+.skills{display:grid;gap:1.5rem 2rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.skills h3{font-size:1.1rem;margin-bottom:.5rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chips span{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:.2rem .65rem;font-size:.95rem}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.75rem 1.5rem}
+dt{font-weight:600}dd{margin:0;color:var(--muted)}
+.contact a.mail{font:800 clamp(1.4rem,4.5vw,2.4rem)/1.2 "Bricolage Grotesque",sans-serif;text-decoration:none;word-break:break-all}
+.contact a.mail:hover{color:var(--accent)}
+.links{display:flex;gap:1.25rem;flex-wrap:wrap;margin-top:1.25rem;font-weight:600}
+#toast{font-size:.9rem;color:var(--accent);min-height:1.4em;margin-top:.5rem}
+footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.stage{position:relative;perspective:900px}
+.grid,.steps{perspective:1000px}
+.tilt{transition:transform .15s ease-out,box-shadow .15s;will-change:transform;box-shadow:0 2px 0 var(--line),0 12px 24px rgba(0,0,0,.14)}
+.card.tilt{transform-style:preserve-3d}
+.card.tilt>*{transform:translateZ(14px)}
+.cube{position:absolute;top:-44px;right:18px;width:72px;height:72px;transform-style:preserve-3d;animation:spin 14s linear infinite;z-index:2}
+.cube i{position:absolute;inset:0;display:grid;place-items:center;font:700 1rem "Bricolage Grotesque",sans-serif;font-style:normal;background:var(--accent);color:var(--accent-ink);border:2px solid var(--hl)}
+.cube i:nth-child(1){transform:translateZ(36px)}
+.cube i:nth-child(2){transform:rotateY(90deg) translateZ(36px)}
+.cube i:nth-child(3){transform:rotateY(180deg) translateZ(36px)}
+.cube i:nth-child(4){transform:rotateY(-90deg) translateZ(36px)}
+.cube i:nth-child(5){transform:rotateX(90deg) translateZ(36px)}
+.cube i:nth-child(6){transform:rotateX(-90deg) translateZ(36px)}
+@keyframes spin{from{transform:rotateX(-20deg) rotateY(0)}to{transform:rotateX(-20deg) rotateY(360deg)}}
+body{background:radial-gradient(900px 520px at 85% -5%,color-mix(in srgb,var(--accent) 20%,transparent),transparent 60%),radial-gradient(700px 420px at -5% 35%,color-mix(in srgb,var(--hl) 12%,transparent),transparent 60%),var(--bg);background-attachment:fixed}
+header{background:color-mix(in srgb,var(--bg) 72%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.hero{padding:6rem 0 5rem}
+.hero h1{letter-spacing:-.045em}
+.hero h1 span{background:linear-gradient(100deg,var(--accent),var(--hl));-webkit-background-clip:text;background-clip:text;color:transparent}
+section{padding:5rem 0}
+section>.wrap>h2{letter-spacing:-.02em}
+.card,.steps li,pre.code{background-color:color-mix(in srgb,var(--surface) 78%,transparent);border:1px solid var(--line);border-radius:16px}
+.chips span{border-radius:999px;background:color-mix(in srgb,var(--surface) 78%,transparent)}
+.tilt{box-shadow:0 1px 0 color-mix(in srgb,var(--ink) 6%,transparent) inset,0 28px 50px -28px rgba(0,0,0,.45)}
+.card.tilt{background-image:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--accent) 16%,transparent),transparent 70%)}
+.big .card{position:relative}
+.big .card::before{content:"";position:absolute;top:0;left:16px;right:16px;height:2px;background:linear-gradient(90deg,var(--hl),transparent)}
+.btn{border-radius:999px;padding:.8rem 1.6rem;border-width:1px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.main{background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 55%,var(--hl)));border-color:transparent;box-shadow:0 10px 28px -8px color-mix(in srgb,var(--accent) 60%,transparent)}
+pre.code{border-left:1px solid var(--line);padding-top:2.8rem;position:relative}
+pre.code::before{content:"";position:absolute;top:16px;left:18px;width:10px;height:10px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 #febc2e,32px 0 #28c840}
+.cube i{background:color-mix(in srgb,var(--accent) 28%,transparent);color:var(--ink);border:1px solid var(--hl)}
+.steps b{background:linear-gradient(var(--hl),color-mix(in srgb,var(--hl) 30%,transparent));-webkit-background-clip:text;background-clip:text;color:transparent}
+footer{border-top:1px solid var(--line)}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding-top:3.5rem}nav ul{display:none}}
+@media (prefers-reduced-motion:reduce){.cursor,.cube{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap"><nav>
+<a class="logo" href="#top">Ayush Thorat</a>
+<ul>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#assignments">Web assignments</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<button id="theme" type="button" aria-label="Switch light or dark theme">◐</button>
+</nav></div>
+</header>
+
+<main id="top">
+<div class="wrap hero">
+<div>
+<h1>Ayush <span>Thorat</span></h1>
+<p>I’m a computer applications student from Shirwal, Pune, learning to build with Python and the web. I’m looking for an entry-level developer role where I can contribute and keep growing.</p>
+<div class="btns">
+<a class="btn main" href="#projects">See my projects</a>
+<a class="btn alt" href="#contact">Contact me</a>
+</div>
+</div>
+<div class="stage">
+<div class="cube" aria-hidden="true"><i>Py</i><i>JS</i><i>HTML</i><i>CSS</i><i>C</i><i>SQL</i></div>
+<pre class="code" aria-label="Short profile written as Python code"><code id="snippet"></code><span class="cursor"></span></pre>
+</div>
+</div>
+
+<section id="projects">
+<div class="wrap big">
+<h2>Projects</h2>
+<p class="lead">Each project lives on GitHub, with the full code and commit history.</p>
+<div class="grid">
+<article class="card">
+<span class="tag">Python</span>
+<h3>Python Programming 2026–27</h3>
+<p>My Python coursework and practice programs for the MCA Python Programming subject.</p>
+<a class="go" href="https://github.com/AyushThorat026-blip/MCA-Python-Programming-2026-27" target="_blank" rel="noopener">View on GitHub</a>
+</article>
+<article class="card">
+<span class="tag">Web</span>
+<h3>Web Project</h3>
+<p>A web project built to put my HTML, CSS and JavaScript skills into practice.</p>
+<a class="go" href="https://github.com/AyushThorat026-blip/web_project_" target="_blank" rel="noopener">View on GitHub</a>
+</article>
+<article class="card">
+<span class="tag">HTML · CSS · JavaScript</span>
+<h3>Web Technology Assignments</h3>
+<p>All five of my web technology assignments, collected in one repository.</p>
+<a class="go" href="https://github.com/AyushThorat026-blip/MCA-Web-Technology-Assignment" target="_blank" rel="noopener">View on GitHub</a>
+</article>
+</div>
+</div>
+</section>
+
+<section id="assignments">
+<div class="wrap">
+<h2>Web technology assignments</h2>
+<p class="lead">Five assignments from my MCA Web Technology course. Each link opens the repository where you can find it.</p>
+<ol class="steps">
+<li><b>1</b><a href="https://github.com/AyushThorat026-blip/MCA-Web-Technology-Assignment" target="_blank" rel="noopener">Assignment 1</a><span>View code on GitHub</span></li>
+<li><b>2</b><a href="https://github.com/AyushThorat026-blip/MCA-Web-Technology-Assignment" target="_blank" rel="noopener">Assignment 2</a><span>View code on GitHub</span></li>
+<li><b>3</b><a href="https://github.com/AyushThorat026-blip/MCA-Web-Technology-Assignment" target="_blank" rel="noopener">Assignment 3</a><span>View code on GitHub</span></li>
+<li><b>4</b><a href="https://github.com/AyushThorat026-blip/MCA-Web-Technology-Assignment" target="_blank" rel="noopener">Assignment 4</a><span>View code on GitHub</span></li>
+<li><b>5</b><a href="https://github.com/AyushThorat026-blip/MCA-Web-Technology-Assignment" target="_blank" rel="noopener">Assignment 5</a><span>View code on GitHub</span></li>
+</ol>
+</div>
+</section>
+
+<section id="skills">
+<div class="wrap">
+<h2>Skills</h2>
+<p class="lead">The tools I use most, from core languages to databases and version control.</p>
+<div class="skills">
+<div><h3>Languages</h3><div class="chips"><span>Python</span><span>Core Java</span><span>C</span></div></div>
+<div><h3>Web</h3><div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div>
+<div><h3>Backend and database</h3><div class="chips"><span>MySQL</span><span>Django (basics)</span><span>PHP</span></div></div>
+<div><h3>Tools</h3><div class="chips"><span>Git</span><span>MS Excel</span><span>VS Code</span></div></div>
+<div><h3>Concepts</h3><div class="chips"><span>OOP</span><span>DBMS</span><span>CRUD operations</span><span>API integration</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="education">
+<div class="wrap">
+<h2>Education and certification</h2>
+<p class="lead">&nbsp;</p>
+<dl>
+<dt>BBA (CA), SPPU</dt><dd>2023–2026</dd>
+<dt>HSC</dt><dd>52.50%, 2022</dd>
+<dt>SSC</dt><dd>60.80%, 2020</dd>
+<dt>Certificate</dt><dd>Certificate Course in Ethical Hacking</dd>
+</dl>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="wrap">
+<h2>Contact</h2>
+<p class="lead">Email is the quickest way to reach me. Select the address to copy it.</p>
+<a class="mail" href="mailto:thoratayush5@gmail.com" id="mail">thoratayush5@gmail.com</a>
+<div id="toast" role="status"></div>
+<div class="links">
+<a href="tel:+917758958350">+91 77589 58350</a>
+<a href="https://github.com/ayush-thorat" target="_blank" rel="noopener">GitHub</a>
+<a href="https://linkedin.com/in/ayush-thorat" target="_blank" rel="noopener">LinkedIn</a>
+</div>
+<p class="tag" style="margin-top:1rem">Tube Colony, Palshi Road, Shirwal – 412801</p>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap">© <span id="yr">2026</span> Ayush Ajit Thorat</div></footer>
+
+<script>
+(function(){
+var root=document.documentElement,btn=document.getElementById('theme');
+try{var t=localStorage.getItem('theme');if(t)root.setAttribute('data-theme',t)}catch(e){}
+btn.addEventListener('click',function(){
+var dark=root.getAttribute('data-theme')?root.getAttribute('data-theme')==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+var n=dark?'light':'dark';root.setAttribute('data-theme',n);
+try{localStorage.setItem('theme',n)}catch(e){}
+});
+document.getElementById('yr').textContent=new Date().getFullYear();
+var mail=document.getElementById('mail'),toast=document.getElementById('toast');
+mail.addEventListener('click',function(e){
+if(navigator.clipboard){e.preventDefault();
+navigator.clipboard.writeText(mail.textContent).then(function(){toast.textContent='Email copied.'},function(){location.href=mail.href});
+setTimeout(function(){toast.textContent=''},2500)}
+});
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&matchMedia('(hover: hover)').matches){
+document.querySelectorAll('.card,.steps li,pre.code').forEach(function(n){
+n.classList.add('tilt');
+n.addEventListener('pointermove',function(e){var r=n.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;n.style.transform='rotateX('+(-y*10)+'deg) rotateY('+(x*12)+'deg) translateZ(8px)';n.style.setProperty('--mx',(x+.5)*100+'%');n.style.setProperty('--my',(y+.5)*100+'%')});
+n.addEventListener('pointerleave',function(){n.style.transform=''});
+});}
+var lines=[
+'<span class="k">class</span> Developer:',
+'    name = <span class="s">"Ayush Thorat"</span>',
+'    city = <span class="s">"Shirwal, Pune"</span>',
+'    languages = [<span class="s">"Python"</span>, <span class="s">"Java"</span>, <span class="s">"C"</span>]',
+'    web = [<span class="s">"HTML"</span>, <span class="s">"CSS"</span>, <span class="s">"JS"</span>]',
+'    looking_for = <span class="s">"entry-level IT role"</span>'
+];
+var el=document.getElementById('snippet'),html=lines.join('\n');
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.innerHTML=html;return}
+var i=0,out='',inTag=false;
+(function type(){
+if(i>=html.length)return;
+var c=html[i++];out+=c;if(c==='<')inTag=true;if(c==='>')inTag=false;
+if(inTag){type();return}
+el.innerHTML=out;setTimeout(type,18);
+})();
+})();
+</script>
+</body>
+</html>
